@@ -12,7 +12,7 @@ var bodyParser = require('body-parser');
 var app = express();
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
-
+var cors = require('cors')
 // swagger options;
 const swaggerOptions = {
     swaggerDefinition: {
@@ -33,7 +33,7 @@ const swaggerDocs = swaggerJsDoc(swaggerOptions);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-
+app.use(cors());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

@@ -14,10 +14,8 @@ async function queryAll(req, res) {
             // }
             // const newRadio = new Radiobase(radio);
             // await newRadio.save();
-            const {nPagination, nRecords, dateInitial, dateEnd, region} = req.query;
+            const {nPagination = 1, nRecords = 1000, dateInitial, dateEnd, region} = req.query;
             console.log(nPagination, nRecords)
-            const inicio = new Date(dateInitial)
-            const fin = new Date(dateEnd)
             let query={}
             if(dateInitial || region){
                 if(dateInitial && dateEnd) {
